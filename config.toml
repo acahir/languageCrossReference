@@ -1,0 +1,5 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Language Comparison Quick Reference"
+publishDir = "./site"
+disableKinds = ["RSS", "sitemap", "taxonomy", "taxonomyTerm"]

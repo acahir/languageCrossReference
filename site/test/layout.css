@@ -1,0 +1,145 @@
+body {
+  margin: 20px;
+}
+
+:root {
+	/* language theme colors */
+	--swift-color: hsl(10, 70%, 57%);
+	--dart-color: hsl(203, 92%, 70%);
+	--python-color: hsl(211, 37%, 48%);
+
+  --swift-column:0;
+  --dart-column:0;
+  --python-column:0;
+  --swift-visibility:none;
+  --dart-visibility:none;
+  --python-visibility:none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 20px minmax(500px, 1fr) minmax(500px, 1fr);
+  grid-auto-columns: minmax(500px, 1fr);
+  grid-auto-rows: min-content;
+  grid-gap: 20px;
+}
+
+.grid > div {
+	margin-top: 0;
+  padding: 20px;
+  /* border: 1px red solid; */
+}
+
+.menu {
+  border-radius: 15px;
+}
+
+.column2 {
+	grid-row: 1;
+	grid-column: 2;
+}
+.column3 {
+	grid-row: 1;
+	grid-column: 3;
+}
+
+.lang {
+	padding-top: 30px;
+  border-radius: 15px;
+  color: #fff;
+	overflow-y: hidden;
+	max-height: 100%;
+	transition: all 1s ease;
+	/*
+	transition-property: max-height, padding-top;
+	transition-duration: 1s, 0s; 
+	transition-delay: 0s, 1s;
+	*/
+}
+
+.lang.collapsed {
+	max-height: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.grid > .code-section-header {
+	grid-column: 1 / -1;
+	max-height: 10px;
+	padding: 0px;
+	z-index: 1;
+}
+
+.code-wrapper {
+	border-radius: 8px;
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.code-section-header-title {
+	background-color: var(--code-header-background);
+	color: var(--code-color);
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+	height: 40px;
+	width: 100%;
+}
+
+.code-section-header-title > h5 {
+	display: inline-block;
+	margin-left: 20px;
+	line-height: 40px;
+}
+.code-section-header-title > button {
+	margin-top: 0px;
+	border: none;
+	color: var(--code-color);
+	float: right;
+	margin-right: 15px;
+	height: 40px;
+	font-size: 14px; /* TODO us rems instead, didn't work at first */
+}
+
+div.lang div:first-child {
+	margin-top: 15px;
+}
+
+.string {
+  grid-row: 3;
+}
+
+.swift {
+  display: var(--swift-visibility);
+  background: hsl(10, 70%, 65%);		/* orig #DE5C43 hsla(10, 70%, 57%) */
+  grid-column: var(--swift-column);
+}
+
+.dart {
+  display: var(--dart-visibility);
+  background: #6AC1F9;
+  grid-column: var(--dart-column);
+}
+
+.python {
+  display: var(--python-visibility);
+  background: #4E79A8;
+  grid-column: var(--python-column);
+}
+
+.code-header {
+	color: var(--code-color);
+	text-transform: uppercase;
+}
+
+.code-reference a {
+	color: #333;
+	background-color: #fff;
+	border-radius: 15px;
+	padding: 2px 10px 5px 10px;
+	font-weight: bold;
+	text-decoration: none;
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.code-reference a:hover {
+	box-shadow: 5px 5px 12px 0px rgba(0, 0, 0, 0.6);
+}

@@ -1,0 +1,409 @@
+/* hugo layout */
+/* TODO - consolidate with below later */
+
+/* summary_li */
+/* Grid: Use default 1fr for under 600px width */
+
+/* general styles for theme */
+
+#content {
+	padding: 2rem 5%;
+	margin: auto;
+	width: 90%;
+	align-items: center;
+}
+h4 {
+	margin-bottom: 0;
+}
+h4 a {
+	font-weight: 400;
+	letter-spacing: initial;
+	margin-bottom: 0;
+	line-height: 1.3;
+	text-decoration: none;
+}
+.float-right {
+	float: right;
+	width: 25%;
+	min-width: 10rem;
+}
+.float-right img {
+	max-width: 100%;
+	display: block;
+}
+
+p + ul, li ul, li ol {
+	margin-top: 0;
+}
+
+ul {
+	list-style: disc outside;
+	margin-left: 4rem;
+}
+.dc-tag {
+	text-transform: lowercase;
+	color: var(--background-color);
+	background-color: var(--accent-color-softer);
+	border: 1px solid var(--accent-color-softer);
+	border-radius: 1em;
+	padding: 0 0.5em;
+}
+.flex {
+	display: flex;
+}
+.content-info {
+	color: var(--text-color-softer);
+	justify-content: space-between;
+	margin-top: 0.5rem;
+}
+footer {
+	color:var(--border-color-richer);
+	font-size: 1.4rem;
+	text-align: center;
+	margin-top: 7rem;
+	height: auto;
+	padding: 2rem;
+}
+dl {
+	margin: 0 auto;
+	margin-top: 1.5rem;
+	background-color: var(--accent-color-softest);
+	border-radius: 1rem;
+	padding: 0 .5rem;
+	width: max-content;
+	max-width: 100%;
+}
+figure.float-right {
+	margin: 1rem;
+	box-shadow: 0px 0px 15px var(--text-color-softer);
+	position: relative;
+}
+.float-right figcaption {
+	color: var(--background-color-softer);
+	position: absolute;
+	bottom: 0;
+	background: rgba(0, 0, 0, .7);
+	width: 100%;
+	padding: .2rem 0;
+}
+.float-right h4 {
+	font-size: 1.6rem;
+	text-align: center;
+}
+
+/* SimpleLightbox Hover fix */
+.slbCloseBtn:hover {
+	color: rgba(255,255,255,0.9);
+	opacity: 1;
+}
+
+.slbWrapOuter {
+	margin-top: 0;
+}
+
+/* Summary items */
+figure {
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0;
+	-webkit-margin-start: 0;
+	-webkit-margin-end: 0;
+}
+.summary.grid-container {
+  max-width: 940px;
+  margin: 0;
+  display: grid;
+  grid-row-gap: 10px;
+  grid-column-gap: 20px;
+  grid-template-columns: minmax(10%, 90px) 3fr;
+  text-align: left;
+  padding: 20px 0;
+}
+.summary.grid-container figure {
+	padding: 0 8px;
+}
+.summary.grid-container p {
+  grid-column-end: span 2;
+}
+.summary.grid-container figure, .summary.grid-container header {
+  margin-top: 20px;
+}
+.summary img {
+	width: 15%;
+	max-width: 150px;
+	display: block;
+	object-fit: contain;
+	width: 100%;
+	border-radius: 1rem;
+}
+.summary time {
+	color: var(--text-color-softer);
+}
+.summary .dc-tags {
+	display: none;
+}
+.summary-continue {
+	margin-left: 1rem;
+	text-transform: uppercase;
+	font-size: 85%;
+	color: var(--accent-color);
+	border-radius: 1em;
+	padding: 0 .5em;
+}
+.summary-continue:hover {
+/* 	background-color: var(--accent-color-softest); */
+	text-decoration: underline;
+}
+
+@media screen and (min-width: 600px) {
+	#content {
+		width: 80%;
+	}
+	.summary.grid-container figure, .summary.grid-container header {
+		margin-top: 20px;
+	}
+  .summary.grid-container figure {
+		padding: 0 20px;
+    grid-row-end: span 2;
+  }
+  .summary.grid-container p {
+    grid-column-end: span 1;
+  }
+  .summary.grid-container {
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: minmax(15%, 150px) 3fr;
+  }
+  h4 a {
+		font-weight: inherit;
+	}
+	.summary .dc-tags {
+		display: initial;
+	}
+	.summary .dc-tag {
+		font-size: 1.4rem;
+		margin: 0 .4rem;
+	}
+	.summary-continue {
+		text-decoration: none;
+	}
+/* 
+	.summary img:hover {
+		filter: drop-shadow(5px 5px 5px var(--border-color));
+	}
+ */
+}
+
+img.radius-25 {
+	border-radius: 25px; }
+img.radius-100 {
+	border-radius: 100px; }
+
+
+
+html {
+	--theme-hue: 0;					/* black */
+	--accent-hue: 130;			/* green */
+	
+	--text-color-richer: hsl(var(--theme-hue), 0%, 5%);			/* #0d0d0d		*/
+	--text-color-normal: hsl(var(--theme-hue), 0%, 13%);		/* #222222 		text color; button:hover:focus color */
+	--text-color-softer: hsl(var(--theme-hue), 0%, 33%);		/* #555555 		button color; button:hover border */
+
+  --accent-color: hsl(var(--accent-hue), 100%, 20%);			/* #33C3F0 		link; button-primary bg+border; textarea,select:focus border */
+  --accent-color-hover: hsl(var(--accent-hue), 100%, 30%);	/* #1EAEDB 		link hover; button-primary:hover:focus bg+border */
+	--accent-color-softer: hsl(var(--accent-hue), 30%, 70%);
+	--accent-color-softest: hsl(var(--accent-hue), 25%, 80%);
+
+	--border-color-richer: hsl(var(--theme-hue), 0%, 40%);	/* #808080		*/	
+  --border-color: hsl(var(--theme-hue), 0%, 73%);					/* #bababa		button border */
+	--border-color-softer: hsl(var(--theme-hue), 0%, 82%);	/* #d1d1d1		textarea,select,code,td,hr border	 */
+	
+	--background-color: white;															/* transparent body background; textarea,select background */
+	--background-color-softer: hsl(var(--theme-hue), 0%, 95%);
+
+/*   --code-background: hsl(var(--theme-hue), 0%, 95%);			/* #f1f1f1 		code background*/ */
+
+	--button-primary-color: white;	
+}
+
+
+
+
+/* using data-theme attributes to allow switching via javascript */
+html[data-theme="dark"] {
+	/* dark theme: light background, dark text, blue accent */
+	--theme-hue: 0;					/* black */
+	--accent-hue: 174;			/* blue */
+
+	--text-color-richer: hsl(var(--theme-hue), 0%, 90%);		/* 		*/
+	--text-color-normal: hsl(var(--theme-hue), 0%, 70%);		/* text color; button:hover:focus color */
+	--text-color-softer: hsl(var(--theme-hue), 0%, 35%);		/* button color; button:hover border */
+
+  --accent-color: hsl(var(--accent-hue), 100%, 30%);				/* link; button-primary bg+border; textarea,select:focus border */
+  --accent-color-hover: hsl(var(--accent-hue), 100%, 40%);	/* link hover; button-primary:hover:focus bg+border */
+	--accent-color-softer: hsl(var(--accent-hue), 20%, 50%);
+	--accent-color-softest: hsl(var(--accent-hue), 100%, 10%);
+
+	--border-color-richer: hsl(var(--theme-hue), 0%, 25%);
+	--border-color: hsl(var(--theme-hue), 0%, 27%);					/* button border */
+	--border-color-softer: hsl(var(--theme-hue), 0%, 20%);	/* textarea,select,code,td,hr border	 */
+
+	--background-color: hsl(var(--theme-hue), 0%, 12%);			/* body background; textarea,select background */
+	--background-color-softer: hsl(var(--theme-hue), 0%, 18%);
+	--code-background: #272727;				/* code background - here to catch inline code blocks on pages without highlighting */ */
+
+	--button-primary-color: hsl(var(--theme-hue), 0%, 95%);
+	
+}
+
+/* when prefers-color-scheme supported, these can be in single media query with above */
+html[data-theme="dark"] img {
+	opacity: .80;
+	transition: opacity .25s ease-in-out;
+}
+html[data-theme="dark"] img:hover {
+	opacity: 1;
+}
+html[data-theme="dark"] h1, html[data-theme="dark"] h2, html[data-theme="dark"] h3, 
+html[data-theme="dark"] h4, html[data-theme="dark"] h5, html[data-theme="dark"] h6 {
+	color: var(--text-color-richer);
+}
+
+/* add a transition to ease into new themes */
+/* looks best in Mozilla, text transitions late in Safari/Chrome */
+html.transition-theme,
+html.transition-theme *,
+html.transition-theme *:before,
+html.transition-theme *:after {
+  transition: all 650ms !important;
+  transition-delay: 0 !important;
+}
+
+
+/* Pagination */
+.pagination-wrapper {
+	text-align: center;
+}
+.pagination {
+	display: inline-block;
+	margin: 0;
+	list-style: none;
+	background-color: var(--accent-color-softer);
+	border-radius: 2rem;
+}
+.page-item {
+	display: inline-block;
+	margin: 0;
+	border-left: 1px solid var(--background-color);
+	border-right: 1px solid var(--background-color);
+}
+.page-link {
+	display: block;
+	text-decoration: none;
+	color: var(--button-primary-color);
+	padding: .6rem 1.4rem;
+	font-feature-settings: "lnum" 1; 
+}
+.page-item:first-child {
+	border-left: none;
+	padding-left: .5rem;
+}
+.page-item:last-child {
+	border-right: none;
+	padding-right: .5rem;
+}
+.page-item.active {
+	background-color: var(--accent-color);
+}
+.page-item.disabled {
+	display: none;
+}
+
+.page-item:first-child a span, .page-item:last-child a span {
+	display: none;
+}
+@media screen and (min-width: 600px) {
+	.page-item:first-child a span, .page-item:last-child a span {
+		display: initial;
+	}	
+	.page-item:first-child a i, .page-item:last-child a i {
+		display: none;
+	}	
+}
+
+
+/* search */
+#search {
+	width: 100%;
+}
+#search-results {
+	list-style: none;
+}
+.noUnderline {
+	text-decoration: none;
+}
+
+/* Syntax Highlighting */
+.code-wrapper {
+	position: relative; }
+.code-wrapper pre, .code-wrapper code {
+	margin: 0; }
+.code-wrapper.showHeader code {
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
+}
+.code-wrapper pre {
+	margin-bottom: 2.5rem; }
+.code-header {
+	background-color: var(--code-header-background);
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	padding-left: 1.7rem;
+	font-size: 1.4rem;
+	line-height: 1.9;
+	height: 2.4rem;
+	justify-content: space-between;
+}
+.code-header .code-lang {
+	float: right;
+	font-size: 1.3rem;
+	padding: 0 1rem;
+	margin: 0 1rem;
+	margin-left: auto;
+}
+.code-header img {
+	float: right;
+	height: 2rem;
+	padding: 2px;
+	border-top-right-radius: 4px;
+}
+
+.chroma code, pre.prettyprint, code.prettyprint {
+  font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
+  font-size: 1.6rem;
+  padding: 1rem 1.5rem;
+  -webkit-font-smoothing: antialiased; 
+	border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+	background-color: var(--code-background);
+	border-color: var(--code-background);
+}
+
+
+html[data-code-theme="dark"] .code-header {
+	color: var(--code-color);
+}
+
+html[data-code-theme="dark"] img.code-toggle {
+	filter: invert(1);
+}
+
+/* 
+html[data-code-theme="dark"] .chroma code, 
+html[data-code-theme="dark"] pre.prettyprint, 
+html[data-code-theme="dark"] code.prettyprint {
+	background-color: #272727;
+	border-color: #272727;
+}
+ */
+
+

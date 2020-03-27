@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-code-theme="light">
+<head>
+	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="barebones.css">
+	<link rel="stylesheet" href="custom.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="syntax-highlight.css">
+</head>
+<body>
+	<div class="content">
+	<h4>Language Comparison Quick Reference</h4>
+	<div class="grid">
+		<div class="menu column2">
+			<select id="column2-select" name="2">
+				<option value="" disabled="disabled">Choose language:</option>
+				<option value="swift" selected="selected">Swift</option>
+				<option value="dart">Dart</option>
+				<option value="java" disabled="disabled">Java (coming soon)</option>
+				<option value="python">Python (coming soon)</option>
+			</select>
+		</div>
+		<div class="menu column3">
+			<select id="column3-select" name="3">
+				<option value="" disabled="disabled">Choose language:</option>
+				<option value="swift">Swift</option>
+				<option value="dart" selected="selected">Dart</option>
+				<option value="java" disabled="disabled">Java (coming soon)</option>
+				<option value="python">Python (coming soon)</option>
+			</select>
+		</div>
+		
+		<!--
+		<div class="menu column4">
+			<select id="column4-select" name="4">
+				<option value="" selected="selected" disabled="disabled">Choose language:</option>
+				<option value="swift">Swift</option>
+				<option value="dart">Dart</option>
+				<option value="java" disabled="disabled">Java (coming soon)</option>
+				<option value="python">Python (coming soon)</option>
+			</select>
+		</div>
+		-->
+
+		<!-- String Section -->
+    <div class="code-section-header" >
+    	<div class="code-section-header-title">
+	    	<h5>Strings</h5>
+  	  	<button id="string-hide" class="section-hide" value="string">Hide</button>
+    	</div>
+    </div>
+		<div id="swift-string" class="lang swift string">
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>instantiation</span></div>
+				<pre><code class="prettyprint language-swift">let aString = "A string constant"
+var mutableString = "Change"</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>concatination</span></div>
+				<pre><code class="prettyprint language-swift">mutableString += " me"
+				</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>interpolation</span></div>
+				<pre><code class="prettyprint language-swift">print("The value of myInt is \(myInt)")</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>multiline</span></div>
+				<pre><code class="prettyprint language-swift">let multiLineString = """
+Multiline strings can "quote" 
+parts of the content.
+"""</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>raw</span></div>
+				<pre><code class="prettyprint language-swift">let raw = #"use \(myVar) to print objects"#
+let rawInterpolation = #"myVar: \#(myVar)"#</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>grapheme clusters</span></div>
+				<pre><code class="prettyprint language-swift">var laugh = "laughing emoji: &#x1F606;"
+if let lastCharacter = laugh.last { ... }</code></pre>
+			</div>
+			<div class="code-reference"><a href="https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html">more info</a></div>
+		</div>  
+    <div id="dart-string" class="lang dart string">
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>instantiation</span></div>
+				<pre><code class="prettyprint language-swift">final aString = 'A string constant';
+var mutableString = 'Change';</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>concatination</span></div>
+				<pre><code class="prettyprint language-swift">mutableString += ' me';
+mutableString = 'Change' ' me';</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>interpolation</span></div>
+				<pre><code class="prettyprint language-swift">print('The value of myInt is $myInt');</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>multiline</span></div>
+				<pre><code class="prettyprint language-swift">var multiLineString = """
+Multiline strings can "quote" 
+parts of the content.
+""";</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>raw</span></div>
+				<pre><code class="prettyprint language-swift">var raw = r'use $myVar to print objects';
+				</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>grapheme clusters</span></div>
+				<pre><code class="prettyprint language-swift">import 'package:characters/characters.dart';
+
+var laugh = 'laughing emoji: &#x1F606;';
+var lastCharacter = $laugh.characters.last;</code></pre>
+			</div>
+			<div class="code-reference"><a href="https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html">more info</a></div>
+		</div>
+		<div id="python-string" class="lang python string">Python</div>
+		
+		<!-- Control Flow Section -->
+    <div class="code-section-header" >
+    	<div class="code-section-header-title">
+	    	<h5>Control Flow</h5>
+  	  	<button id="flow-hide" class="section-hide" value="flow">Hide</button>
+    	</div>
+    </div>
+		<div id="swift-flow" class="lang swift flow">
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>conditionals</span></div>
+				<pre><code class="prettyprint language-swift">if x == 5 {
+  // x is 5
+} else if x < 5 {
+  // x less than 5
+} else {
+  // x greater than 5
+}</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>ternary operator</span></div>
+				<pre><code class="prettyprint language-swift">x > 5 ? print("True") : print("False")
+let xLessThanFive = x > 5 ? true : false</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>loops</span></div>
+				<pre><code class="prettyprint language-swift">for item in myArray { ... }
+myArray.forEach { print($0) }
+
+for i in 1...10 {
+  continue  // move to next iteration of loop
+  break     // end loop
+}
+
+while i < 10 { ... }
+
+do { ... } while i < 10</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>switch</span></div>
+				<pre><code class="prettyprint language-swift">var age = 35
+switch age {
+case 40:
+  print("you are over the hill")
+case 18, 21:
+  print("you can now vote or drink")
+case 1...17:
+  print("you are a minor")
+case 0:
+  // case must have at least one statement
+  break
+default:
+  print("you are an adult")
+}
+
+
+
+
+
+
+
+
+</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>notes</span></div>
+				<pre><code class="prettyprint language-swift">- switch statements end once a matching case is found
+- use keyword fallthrough for C-like behavior</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>grapheme clusters</span></div>
+				<pre><code class="prettyprint language-swift">var laugh = "laughing emoji: &#x1F606;"
+if let lastCharacter = laugh.last { ... }</code></pre>
+			</div>
+			<div class="code-reference"><a href="https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html">more info</a></div>
+		</div>  
+    <div id="dart-flow" class="lang dart flow">
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>conditionals</span></div>
+				<pre><code class="prettyprint language-swift">if x == 5 {
+  // x is 5
+} else if x < 5 {
+  // x less than 5
+} else {
+  // x greater than 5
+}</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>ternary operator</span></div>
+				<pre><code class="prettyprint language-swift">x > 5 ? print("True") : print("False")
+let xLessThanFive = x > 5 ? true : false</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>loops</span></div>
+				<pre><code class="prettyprint language-swift">for (item in myArray) { ... }
+myArray.forEach((item) => print(item));
+
+for (var i = 1; i <= 10; i++) {
+  continue;  // move to next iteration of loop
+  break;     // end loop
+}
+
+while i < 10 { ... }
+
+do { ... } while i < 10;</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>switch</span></div>
+				<pre><code class="prettyprint language-swift">var age = 35;
+switch (age) {
+  case 40:
+    print("you are over the hill");
+    break;
+  case 18:
+  case 21:
+    print("you can now vote or drink");
+    break;
+  case 1...17:
+  case 2:
+  ...
+  case 17:
+    print("you are a minor");
+    break;
+  case 0:
+    // case must have at least one statement
+    break;
+  default:
+    print("you are an adult");
+}</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>notes</span></div>
+				<pre><code class="prettyprint language-swift">
+
+
+</code></pre>
+			</div>
+			<div class="code-wrapper showHeader">
+				<div class="code-header flex"><span>grapheme clusters</span></div>
+				<pre><code class="prettyprint language-swift">var laugh = "laughing emoji: &#x1F606;"
+if let lastCharacter = laugh.last { ... }</code></pre>
+			</div>
+			<div class="code-reference"><a href="https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html">more info</a></div>
+		</div>
+		<div id="python-flow" class="lang python flow">Python</div>
+		
+	</div>
+	</div>
+	<script src="script.js"></script>
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>	
+</body>
+</html>
