@@ -101,18 +101,31 @@ body {
 }
 
 .code-wrapper {
+	position: relative;
 	border-radius: 8px;
 	margin: 0 20px 0 20px;
 	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 .code-wrapper pre {
-	margin-bottom: 2rem;
+	margin: 0 0 2rem 0;
 }
 
 .code-header {
 	color: var(--code-color);
+	background-color: var(--code-header-background);
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	padding-left: 1.7rem;
+	font-size: 1.4rem;
+	line-height: 1.9;
+	height: 2.4rem;
+	justify-content: space-between;
 	text-transform: uppercase;
+}
+
+.flex {
+	display: flex;
 }
 
 .code-reference {
