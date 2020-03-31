@@ -43,7 +43,7 @@ function selectChange(element) {
     }
     
     // clean up previous location, if currently displayed
-    if (menu.value === element.value) {
+    if (element.valeu != '' && menu.value === element.value) {
       var prevColumnLanguagePropertyName = '--column' + menu.name;
       root.style.setProperty(prevColumnLanguagePropertyName, '');
       

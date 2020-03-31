@@ -1,0 +1,435 @@
+sections:
+  style:
+    items:
+      - naming: |-
+          UpperCamelCase: Types and Protocols
+          lowerCamelCase: everything else
+      - filenames: |-
+          - MyType.swift
+          - MyType+MyProtocol.swift
+      - reference: https://swift.org/documentation/api-design-guidelines/
+  basic:
+    items:
+      - types: |-
+          Int, Double, Bool, String, Data, Any, AnyObject
+          Array, Set, Dictionary
+          
+          if item is Int { ... }
+          if let mySquare = rectangle as? Square { ... }
+      - variables: |-
+          var mutableAge = 35
+          let constantBirthYear = 1985
+          var myAge: Int = 35
+          
+          // strongly typed, and inferred
+          // no automatic type converstion
+      - operators: |-
+          assignment: a = b
+          arithmetic: +, -, *, /, %
+          compound assignment: +=, -=, *=, /=
+          comparison: ==, !=, >, <, >=, <=
+          logical: !, &&, ||
+          increment/decrement: N/A
+      - comments: |-
+          // single line commeng
+          /* multiline
+             comment */
+          /// doc comment
+      - ranges: |-
+          i in 1...5  // includes 1 and 5
+          i in 1..<5  // includes 1, not 5
+          item in array[4...] 
+          item in array[..<4]
+      - tuples: |-
+          let httpError = (404, "Not found")
+          let (code, errMsg) = httpError
+          let code = httpError.0
+          let (_, errMsg) = httpError
+      - reference: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html
+  null:
+    items:
+      - value: nil
+      - define: "var optString: String?"
+      - safe access: |-
+          if let x = optString?.count { ... }
+          let x = optString?.count ?? 0
+          let x = optString?.count // x is optional
+          let x = optionalVar ?? otherVar
+      - forced access: |-
+          let x = optString!.count
+          
+          let optString: String! = "Implicitly Unwrapped"
+          let x = optString   // no need for ? or !
+      - notes: must be explicitly declared
+      - reference: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID330
+  string:
+    items:
+      - instantiation: |-
+          let aString = "A string constant"
+          var mutableString = "Change"
+      - concatination: |-
+          mutableString += " me"
+      - interpolation: |-
+          print("The value of myInt is \(myInt)")
+      - multiline: |-
+          let multiLineString = """
+          Multiline strings can "quote" 
+          parts of the content.
+          """
+      - raw: |-
+          let raw = #"use \(myVar) to print objects"#
+          let rawInterpolation = #"myVar: \#(myVar)"#
+      - grapheme clusters: |-
+          var laugh = "laughing emoji: &#x1F606;"
+          if let lastCharacter = laugh.last { ... }"
+      - reference: https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html
+  flow:
+    items:
+      - conditionals: |-
+          if x == 5 {
+            // x is 5
+          } else if x < 5 {
+            // x less than 5
+          } else {
+            // x greater than 5
+          }
+      - ternary operator: |-
+          x > 5 ? print("True") : print("False")
+          let xLessThanFive = x > 5 ? true : false
+      - loops: |-
+          for item in myArray { ... }
+          myArray.forEach { print($0) }
+        
+          for i in 1...10 {
+            continue  // move to next iteration of loop
+            break     // end loop
+          }
+        
+          while i < 10 { ... }
+        
+          do { ... } while i < 10
+      - switch: |-
+          var age = 35
+          switch age {
+          case 40:
+            print("you are over the hill")
+          case 18, 21:
+            print("you can now vote or drink")
+          case 1...17:
+            print("you are a minor")
+          case 0:
+            // case must have at least one statement
+            break
+          default:
+            print("you are an adult")
+          }
+          
+          // Note:  switch statements end once a 
+          //        matching case is found
+          //        use keyword 'fallthrough' for 
+          //        C-like behavior"
+      - reference: https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html
+  collection:
+    items:
+      - array create: |-
+          var mutableArray = ["One", "Two"]
+          var emptyArray = [Int]()   // empty array
+          var arrayOfPi = Array(repeating: 3.14, count 10)
+      - array access: |-
+          if let index = mutableArray.firstIndex(of: "Two") {
+            let a = mutableArray[index]
+          }
+      - array modify: |-
+          mutableArray.append("Three")
+          mutableArray.insert("Three", at: 1)
+          mutableArray += ["Three"]
+          
+          mutableArray[1] = "Three"
+          
+          mutableArray.remove(at: 1)
+          let poppedItem = mutableArray.removeLast()
+      - set create: |-
+          let immutableSet: Set = [1, 2, 3, 2]  // [1, 2, 3]
+          var mutableSet: Set = ["One", "Two", "Three"]
+          var emptySet = Set<String>()
+      - set modify: |-
+          mutableSet.insert(4)
+          
+          // returns item or nil
+          let optionalItem = mutableSet.remove(3)
+          
+          mutableSet.removeAll()
+      - set utility: |-
+          setA.union(setB)
+          setA.intersection(setB)
+          setA.subtracting(setB)
+          setA.symmetricDifference(setB)
+          
+          setA.isSubSet(of: setB)
+          setA.isSuperset(of: setB)
+          setA.isDisjoint(with: setB)
+      - key-value create: |-
+          var personDictionary = ["first": "Joe", "last": "Smith"]
+          var emptyDictionary = [String: String]()
+      - key-value access: |-
+          let name = personDictionary["first"]
+      - key-value modify: |-
+          personDict["middleInitial"] = "C"
+          let oldValue = personDict.updateValue("Blow", forKey: "last")
+          
+          personDict["middleInitial"] = nil
+          let removedValue = personDict.removeValue(forKey: "first")
+      - "all: properties": |-
+          let numberOfElements = mutableArray.count
+          if myDictionary.isEmpty { ... } // faster check than .count
+      - "all:  iteration": |-
+          for item in myArray { ... }  // all collections
+          mySet.forEach { print($0) }  // all collections
+          
+          // Array specific
+          for (index, item) in myArray.enumerated() { ... }
+          
+          // Dictionary specific
+          for (key, value) in myDictionary { ... }
+          for key in myDictionary.keys { ... }
+          for value in myDictionary.values { ... }
+      - "all: utility": |-
+          let isTrue = myArray.contains("Cats")
+          
+          let sortedSet = mySet.sorted() // Sets & Dicts have no order
+          
+          // map, compactMap, flatMap
+          let numbers = [1, 2, 3]
+          let numberStrings = numbers.map {String($0)} // ["1", "2", "3"]
+          
+          strings[1] = "Cars"
+          let optionalNumbers = strings.map { Int($0) }  // [1, nil, 3]
+          let onlyNumbers = strings.compactMap { Int($0) }  // [1, 3]
+          
+          let optionalStrings: String? = ["1", nil, "3"]
+          let result = optionalStrings.map { Int($0) } 
+          // result is type [Int??]
+          let result = optionalString.flatMap { Int($0) } // [Int?]
+      - reference: https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html
+  function:
+    items:
+      - overview: |-
+          // single parameter and default and single return value
+          func sayHello(name: String = "World") -> String { ... }
+          print(sayHello(name: "Jane"))
+          
+          // omit argument labels on call
+          func sayHello(_ name: String) { ... }
+          sayHello("Jane")
+          
+          // multiple return values using tuple
+          func heightAndWeight(name: String) -> (Int, Int) { ... }
+          
+          // inout (by reference) parameters
+          func swapInts(a: inout Int, b: inout Int) { ... }
+          swapInts(a: &intOne, b: &intTwo)
+          
+          // zero or more parameters (omitting label)
+          for calculateSum(_ numbers: Int...) -> Int { ... }
+          calculateSum(1, 2, 3, 4, 5)  // 15
+          
+          // single statement functions can skip return keyword
+          func addTwoInts(_ a: Int, _ b: Int) -> Int { a + b }
+          // function as parameter
+          func printMath(math: (Int, Int) -> Int, a: Int, b: Int) {
+            print(math(a, b))
+          }
+          doMath(math: addTwoInts, a: 2, b: 3) // prints 5
+      - closures/lambdas: |-
+          let addClosure: (Int, Int) -> Int = { (a, b) in a + b }
+          let subtractClosure: (Int, Int) -> Int = { $0 - $1 }
+  enum:
+    items:
+      - create: |-
+          enum VisualArt {
+            case painting, poster, sculpture, ascii
+          }
+          let newPurchase = VisualArt.poster
+      - closures/lambdas: |-
+          enum Dessert: CaseIterable {
+            case brownie, cookie, cake, port
+          }
+          let countOfDessertTypes = Dessert.allCases.count
+          for type in Dessert.allCases { ... }
+      - raw values: |-
+          enum State: String {
+            case utah = "UT"
+            case florida = "FL"
+            case minnisota = "MN"
+          }
+          print("Abbreviation for Utah is \(State.utah.rawValue)")
+      - associated values: |-
+          enum Favorite {
+            case color(String)
+            case number(Int)
+            case none
+          }
+          let lucky = Favorite.number(7)
+          switch lucky {
+            case .none:
+              print("No favorites")
+            case .number(let value):
+              print("Lucky Number \(value)!")
+            case .color:
+              print("So pretty")
+          }
+  struct:
+    items:
+      - create: |-
+          struct Student {
+            var name: String
+            var class: Int
+            var school: String = "Middletown High School"
+          }
+      - instantiate: |-
+          let joe = Student(name: "Joe", class: 2019)
+          let graduationYear = joe.class
+      - reference: https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html
+  class:
+    items:
+      - define: |-
+          class Animal {
+            let name: String
+            var sound = "Animal noises"
+            var numberOfFleas = 0
+            var needsBath: Bool {     // computed property
+              numberOfFleas > 0
+            }
+          
+            init(name: String) {
+              self.name = name
+            }
+          
+            convenience init() {
+              self.name = "Unknown animal"
+            }
+          
+            func makeSound() {
+              print(sound)
+            }
+          }
+      - instantiate: |-
+          let cat = Animal(name: "Cat")
+      - subclass: |-
+          class Dog: Animal {
+            var isMuddy = false
+            
+            override init(name: String = "Dog") {
+              super.init(name: name)
+              self.sound = "Bark"
+            }
+          
+            override var needsBath: Bool {
+              numberOfFleas > 10 && isMuddy
+            }
+          }
+          let dog = Dog()
+          
+          final class Flea: Animal { ... }  // can not subclass
+      - reference: https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html
+  protocol:
+    items:
+      - protocols: |-
+          protocol HealthCheckable {
+            var height: Int
+            var weight: Int
+            func calculateBMI() -> Double
+          }
+          struct Person: HealthCheckable { ... }
+      - extensions: |-
+          // can be used with class, structures, enums, or protocols
+          extension Int {
+            func squared() -> Int {
+              return self * self
+            }
+          }
+          let twoSquared = 2.squared()
+      - reference: https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html
+  error:
+    items:
+      - define: |-
+          enum ProgrammerError: Error {
+            case needsCaffine
+            case notEnoughSleep
+            case canNotReproduce
+          }
+          func writeCode() throws -> String { ... }
+      - handle: |-
+          let newFunction = try? writeCode()
+          
+          let newCode: String?
+          do {
+            newCode = try writeCode()
+            // success
+          } catch ProgrammerError.needsCaffine {
+            // get coffee
+          } catch {
+            newCode = nil
+          }
+      - reference: https://docs.swift.org/swift-book/LanguageGuide/ErrorHandling.html
+  misc:
+    items:
+      - access: |-
+          public
+          internal     // default, limited to defining module
+          fileprivate  // limited to source file
+          private      // limited to enclosing declaration
+      - underscore: |-
+          // used to ignore an unneeded value. ex:
+          let (_, errMsg) = httpError
+  core:
+    items:
+      - filesystem: |-
+          https://developer.apple.com/documentation/foundation/filemanager
+      - network: |-
+          https://developer.apple.com/documentation/foundation/url_loading_system
+      - date: |-
+          let now = Date()
+          let formatter = DateFormatter()
+          formatter.dateStyle = .medium
+          formatter.timeStyle = .none
+          let nowString = formatter.string(from: now)
+          https://developer.apple.com/documentation/foundation/dates_and_times
+      - json: |-
+          struct AccountInfo: Codable {
+            let username: String
+            let id: Int
+            let lastLoginDate: String   // ISO 8601 string
+          }
+          
+          // decode from json into swift objects
+          let jsonString = """
+          { "username": "Joe", "id": 5, "lastLoginDate": "2019-04-23" }
+          """
+          let jsonData = Data(jsonString.utf8)
+          
+          let decoder = JSONDecoder()
+          let accountInfo = try? decoder.decode(AccountInfo.self, from:jsonData)
+          
+          // encode from swift objects to json
+          let encoder = JSONEncoder()
+          if let accountInfoData = try? encoder.encode(accountInfo) {
+            if let encodedJsonString = String(data: accountInfoData, encoding: .utf8) {
+              print(encodedJsonString)
+            }
+          }
+          https://developer.apple.com/documentation/swift/codable
+      - threading: |-
+          DispatchQueue.global(qos: .userInitiated).async {
+            if let url = URL(string: urlString) {
+              if let data = try? Data(contentsOf: url) {
+                self.parse(json: data)
+                return
+              }
+            }
+          }
+          https://github.com/apple/swift-corelibs-libdispatch
+
+
+
+

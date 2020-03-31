@@ -3,3 +3,6 @@ languageCode = "en-us"
 title = "Language Comparison Quick Reference"
 publishDir = "./site"
 disableKinds = ["RSS", "sitemap", "taxonomy", "taxonomyTerm"]
+pygmentsUseClasses = "true"
+theme = "compare"
+disableHugoGeneratorInject = true

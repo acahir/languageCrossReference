@@ -1,0 +1,72 @@
+sections:
+  string:
+    items:
+      - instantiation: |-
+          final aString = 'A string constant';
+          var mutableString = 'Change';
+      - concatination: |-
+          mutableString += ' me';
+          mutableString = 'Change' ' me';
+      - interpolation: |-
+          print('The value of myInt is $myInt');
+      - multiline: |-
+          var multiLineString = """
+          Multiline strings can "quote" 
+          parts of the content.
+          """;
+      - raw: |-
+          var raw = r'use $myVar to print objects';
+      - grapheme clusters: |-
+          import 'package:characters/characters.dart';
+          
+          var laugh = 'laughing emoji: &#x1F606;';
+          var lastCharacter = $laugh.characters.last;
+      - reference: "https://dart.dev/guides/language/language-tour#strings"
+  flow:
+    items:
+      - conditionals: |-
+          if x == 5 {
+            // x is 5
+          } else if x < 5 {
+            // x less than 5
+          } else {
+            // x greater than 5
+          }
+      - ternary operator: |-
+          x > 5 ? print("True") : print("False");
+          var xLessThanFive = x > 5 ? true : false;
+      - loops: |-
+          for (item in myArray) { ... }
+          myArray.forEach((item) => print(item));
+          
+          for (var i = 1; i <= 10; i++) {
+            continue;  // move to next iteration of loop
+            break;     // end loop
+          }
+          
+          while i < 10 { ... }
+          
+          do { ... } while i < 10;
+      - switch: |-
+          var age = 35;
+          switch (age) {
+          case 40:
+            print("you are over the hill");
+            break;
+          case 18:
+          case 21:
+            print("you can now vote or drink");
+            break;
+          case 1...17:
+          case 2:
+          ...
+          case 17:
+            print("you are a minor");
+            break;
+          case 0:
+            // case must have at least one statement
+            break;
+          default:
+            print("you are an adult");
+          }
+      - reference: "https://dart.dev/guides/language/language-tour#control-flow-statements"
