@@ -1,0 +1,387 @@
+info:
+  version: "3.8.2"
+  lastModified: "2020-03-31"
+  shortName: "python"
+  displayName: "Python"
+options:
+  themeColor: "hsl(211, 37%, 48%)"
+sections:
+  style:
+    items:
+      - naming: |-
+          lowercase_underscore: functions, variables, modules
+          CamelCase: classes
+          UPPER_CASE: constants
+          lowercase: packages (no underscores)
+      - filenames: |-
+          lowercase_underscored.py
+      - indentation: |-
+          use 4 consecutive spaces
+          prefer spaces over tabs
+          note: python is whitespace sensitive
+      - reference: https://www.python.org/dev/peps/pep-0008/
+  basic:
+    items:
+      - types: |-
+          int, float, bool, str, byte
+          list, set, dict, tuple
+
+          type(my_int)  # <class 'int'>
+          isinstance(my_int, int)
+      - variables: |-
+          myAge = 35
+          CONSTANT_BIRTH_YEAR = 1985
+          
+          # dynamically typed
+          # no automatic type conversion
+      - operators: |-
+          assignment: a = b
+          arithmetic: +, -, *, /, %
+          compound assignment: +=, -=, *=, /=
+          comparison: ==, !=, >, <, >=, <=
+          logical: not, and, or
+      - increment/decrement: n/a
+      - comments: |-
+          # inline comments
+          """ docstring """
+      - ranges: |-
+          range(6)         # 0 to 5
+          range(1, 11, 2)   # 1, 3, 5, 7, 9
+          
+          array[:4]  # indexes 0 to 3
+          array[4:]  # indexes 4 to end
+      - tuples: |-
+          httpError = (404, "Not Found")
+          (code, errMsg) = httpError
+          code = httpError[0]
+          
+          myTuple[2:5]       # access via range of indexes
+          for x in myTuple
+          if "exists" in myTuple
+          len(myTuple)
+          
+          # tuples are immutable
+      - reference: https://docs.python.org/3/library/stdtypes.html
+  nullable:
+    items:
+      - value: None
+      - define: |-
+          x = None
+      - safe access: |-
+          if x is None:
+          # do not use == or !=
+      - forced access: |-
+          n/a
+      - reference: https://docs.python.org/3/library/constants.html?highlight=none#None
+  string:
+    items:
+      - instantiation: |-
+          A_STRING = "A string constant"
+          mutableString = "Change"
+      - concatination: |-
+          mutableString += " me"
+      - interpolation: |-
+          print("The value of my_int is {0}".format(my_int))
+      - multiline: |-
+          multilineString = '''
+          Multiline strings can "quote"
+          parts of the content.
+          '''
+          # can also use double quotes
+      - raw: |-
+          rawString = r'use /n to print a newline'
+      - grapheme clusters: |-
+          # strings are arrays, no character object
+          laugh = "laughing!"
+          exclamationMark = laugh[-1]
+      - reference: https://docs.python.org/3/library/stdtypes.html#str
+  flow:
+    items:
+      - conditionals: |-
+          if x == 5:
+            # x is 5
+          elif x < 5:
+            # x less than 5
+          else:
+            # x > than 5
+      - ternary operator: |-
+          print("True") if x > 5 else print("False")
+      - loops: |-
+          for item in myList:
+          
+          for i in range(1, 10):
+            continue   # move to next interation of loop
+            break      # end loops
+            pass       # do nothing, but fills need for statement
+          
+          while i < 10:
+            i += 1
+          else:
+            # do this once at end; optional
+      - switch: |-
+          n/a
+      - reference: https://docs.python.org/3/reference/compound_stmts.html
+  collection:
+    items:
+      - array create: |-
+          mutable_list = ["One","Two"]
+          empty_list = []
+          
+          new_list = mutable_list.copy()
+          new_list = list(mutable_list)
+      - array access: |-
+          if 1 < len(mutable_list):
+            a = mutable_list[1]
+      - array modify: |-
+          mutable_list.append("Three")
+          mutable_list.insert(1, "Three")
+          mutable_list += ["Three"]
+          
+          mutable_list[1] = "Three"
+          
+          mutable_list.remove("Two")
+          mutable_list.pop(1)
+          del mutable_list[1]
+      - set create: |-
+          mutable_set = {1, 2, 3, 2}
+          empty_set = set()
+      - set modify: |-
+          mutable_set.add(4)
+          
+          mutable_set.remove(5)  # will raise error if not in set
+          mutable_set.discard(5)  # will NOT raise error if not in set
+          
+          mutable_set.clear()
+      - set utility: |-
+          set_a.union(set_b)
+          set_a.intersection(set_b)
+          set_a.difference(set_b)
+          
+          set_a.issubset(set_b)
+          set_a.issuperset(set_b)
+          set_a.isdisjoint(set_b)
+      - key-value create: |-
+          person_dict = {"first": "Joe", "last": "Smith"}
+          empty_dict = {}
+          
+          new_dict = person_dict.copy()
+          new_dict = dict(person_dict)
+      - key-value access: |-
+          name = person_dict["first"]
+          
+          if "middle_initial" in person_dict:
+      - key-value modify: |-
+          person_dict["middle_initial"] = "C"
+          
+          person_dict.pop("middle_initial")
+          person_dict.clear()
+      - key-value utility: |-
+          # gets value, or sets with provided value
+          x = person_dict.setDefault["last", "Jones"]
+      - "all: properties": |-
+          count = len(my_collection)
+      - "all: iteration": |-
+          for item in my_list:   # all collections
+          
+          # List specific
+          for index, item in enumerate(person_dict):
+          
+          # Dictionary specific
+          for key, value in person_dict:
+      - "all: utility": |-
+          if "Cat" in my_pets
+      - reference: https://docs.python.org/3/library/stdtypes.html
+  function:
+    items:
+      - overview: |-
+          # single parameter with default
+          def say_hello(name = "Joe"):
+          say_hello("Jane")
+          
+          # call with named arguments
+          def say_hello(name, use_exclaim)
+          say_hello(use_exclaim = True, name = "Jane")
+          
+          # return values
+          def say_hello(name):
+            return "Hello, " + name
+          greeting = say_hello("John")
+      - closures/lambdas: |-
+          add_lambda = lambda a, b : a + b
+          https://docs.python.org/3/reference/expressions.html#lambda
+      - reference: https://docs.python.org/3/reference/compound_stmts.html#function-definitions
+  enum:
+    items:
+      - create: |-
+          from enum import Enum   # new in python 3.4
+          
+          Art = Enum('Art', 'painting poster sculpture ascii')
+          new_purchase = Art.ascii
+      - access: |-
+          Art.poster         # Art.poster
+          Art['painting']    # Art.painting
+          Art.poster.name    # poster
+          Art.poster.value   # 2   
+      - raw values: |-
+          class State(Enum):
+            utah = "UT"
+            florida = "FL"
+            minnisota = "MN"
+            
+          State.utah.value   # UT
+      - associated values: n/a
+      - reference: https://docs.python.org/3/library/enum.html#module-enum
+  struct:
+    items:
+      - create: |-
+          # use named tuples; immutable
+          # updated in 3.6
+          from typing import NamedTuple
+          
+          class StudentNT(NamedTuple):
+            name: str
+            class: int
+            school: str
+          
+          
+          # use Data Classes; mutable
+          # new in 3.7
+          from dataclasses import dataclass
+          
+          @dataclass
+          class StudentDC:
+            name: str
+            class: int
+            school: str = "Middletown High School"
+      - instantiate: |-
+          joe = StudentNT("Joe", 2019, "Middletown High School")
+          
+          joe = StudentDC("Joe", 2019)
+      - reference: |-
+          https://docs.python.org/3/library/typing.html#typing.NamedTuple
+          https://docs.python.org/3/library/dataclasses.html
+  class:
+    items:
+      - define: |-
+          class Animal:
+            def __init__(self, name, sound = "Animal noises", 
+                         number_of_fleas = 0):
+              self.name = name
+              self.sound = sound
+              self.number_of_fleas = number_of_fleas          
+            
+            # calculated property
+            @property
+            def needs_bath(self):
+              return self.number_of_fleas > 0
+            
+            def make_sound(self):
+              print(self.sound)
+      - instantiate: |-
+          cat = Animal("Cat")
+      - subclass: |-
+          class Dog(Animal):
+            def __init__(self, name = "Dog"):
+              super().__init__(name, "Bark")
+              self.isMuddy = False
+            
+            @property
+            def needs_bath(self):
+              return self.number_of_fleas > 10
+          
+          dog = Dog()
+          dog.make_soound()   # Bark
+      - reference: https://docs.python.org/3/reference/compound_stmts.html#class-definitions
+  protocol:
+    items:
+      - protocols: |-
+          from abc import ABC
+          
+          class HealthCheckable(ABC):
+            def __init__(self, height, weight):
+              self.height = height
+              self.weight = weight
+              super().__init__()
+              
+            @abstractmethod
+            def calculate_bmi(self):
+              pass
+              
+          class Person(HealthCheckable):
+            # must implement calculate_bmi or can't be instantiated
+            def calculate_bmi:
+              return self.weight / self.height
+      - extensions: n/a
+      - reference: https://docs.python.org/3/library/abc.html
+  error:
+    items:
+      - define: |-
+          class ProgrammerError(Exception):
+            def __init__(self, msg = None):
+              if msg is None:
+                msg = "Programmer made an error"
+              super(ProgrammerError, self).__init__(msg)
+          
+          class NeedsCaffineError(ProgrammerError):
+            def __init__(self):
+              super(NeedsCaffineError, 
+                    self).__init__(msg="Caffine needed")
+      - handle: |-
+          try:
+            new_code = write_code()
+          except NeedsCaffineError as e:
+            get_coffee()
+            
+      - reference: https://docs.python.org/3/library/exceptions.html
+  misc:
+    items:
+      - access scope: |-
+          # convetion only, python has no access limitations
+          # name mangling is meant for namespaces
+          class WideOpen:
+            def __init__(self):
+              _private_variable = 5
+              __mangled_name = "harder to access"
+  core:
+    items:
+      - filesystem: |-
+          data_file = open("data.cvs")
+          for line in data_line:
+            # process line
+          
+          output_file = open("error.log", "w")
+          output_file.write("Programmer error again")
+          output_file.close()
+      - network: |-
+          import urllib.request
+          
+          result = urllib.request.urlopen("http://example.com/").read()
+          
+          # also see aiohttp library build on top of asyncio
+      - date: |-
+          import datetime
+          now = datetime.datetime.now()
+          now.strftime(%x)    # MM/DD/YY
+          
+          https://docs.python.org/3/library/datetime.html
+      - json: |-
+          import json
+          
+          json_str = '''
+          { "username": "Joe", "id": 5, "lastLoginDate": "2019-04-23" }
+          '''
+          dict_from_json = json.loads(json_str)
+          
+          encoded_json = json.dumps(dict_from_json)
+          https://docs.python.org/3/library/json.html
+      - "async/threading": |-
+          import asyncio
+
+          async def main():
+            print('Hello ...')
+            await asyncio.sleep(1)
+            print('... World!')
+
+          # Python 3.7+
+          asyncio.run(main())
+          https://docs.python.org/3/library/asyncio.html

@@ -1,4 +1,75 @@
+info:
+  version: "2.6"
+  lastModified: "2020-03-31"
+  shortName: "dart"
+  displayName: "Dart"
+options:
+  themeColor: "hsl(203, 92%, 70%)"
 sections:
+  style:
+    items:
+      - naming: |-
+          UpperCamelCase: Types and Extensions
+          lowerCamelCase: identifiers and constants
+          lowecase_underscore: libraries, packages, directories
+          _leadingUnderscore: private variable or method
+      - indentation: |-
+          indent 2 spaces
+          prefer spaces to tabs
+          use dartfmt to correctly format
+      - filenames: |-
+          lowercase_with_underscores.swift
+          MyType+MyProtocol.swift
+      - reference: https://dart.dev/guides/language/effective-dart/style
+  basic:
+    items:
+      - types: |-
+          int, double, bool, String, dynamic, Object
+          List, Set, Map
+          
+          if (emp is Person) { ... }
+          // following could throw
+          (myShape as Circle).radius = 5
+      - variables: |-
+          var myAge = 35;
+          final myBirthYear = 1985;
+          cont pi = 3.14;
+          int myAge = 35;
+          
+          // strongly typed with type inferrence
+          // automatic type converstion
+      - operators: |-
+          assignment: a = b
+          arithmetic: +, -, *, /, %
+          compound assignment: +=, -=, *=, /=
+          comparison: ==, !=, >, <, >=, <=
+          logical: !, &&, ||
+      - increment/decrement: |-
+          print(++a) // increment, then print
+          print(a++) // print, then increment
+      - comments: |-
+          // single line commeng
+          /* multiline
+             comment */
+          /// doc comment
+      - ranges: n/a
+      - tuples: |-
+          n/a
+          https://pub.dev/packages/tuple
+      - reference: https://dart.dev/guides/language/language-tour
+  nullable:
+    items:
+      - value: null
+      - define: |-
+          // all objects can be null
+          String name;
+      - safe access: |-
+          let x = User?.name;
+          var msg = err ?? "No Errors";
+          var msg ??= err
+      - forced access: |-
+          n/a
+      - reference: https://dart.dev/guides/language/language-tour#default-value
   string:
     items:
       - instantiation: |-
@@ -21,7 +92,7 @@ sections:
           
           var laugh = 'laughing emoji: &#x1F606;';
           var lastCharacter = $laugh.characters.last;
-      - reference: "https://dart.dev/guides/language/language-tour#strings"
+      - reference: https://dart.dev/guides/language/language-tour#strings
   flow:
     items:
       - conditionals: |-
@@ -69,4 +140,268 @@ sections:
           default:
             print("you are an adult");
           }
-      - reference: "https://dart.dev/guides/language/language-tour#control-flow-statements"
+      - reference: https://dart.dev/guides/language/language-tour#control-flow-statements
+  collection:
+    items:
+      - array create: |-
+          var mutableList = ["One", "Two"];
+          var emptyList = List<int>();
+      - array access: |-
+          var index = mutableList.indexOf("Two");
+          if (index != -1) {
+            final a = mutableList[index];
+          }
+      - array modify: |-
+          mutableList.add("Three");
+          mutableList.insert(1, "Three");
+          mutableList += ["Three"]
+          
+          mutableList[1] = "Three";
+          
+          mutableList.removeAt(1);
+          final poppedItem = mutableArray.removeLast()
+      - set create: |-
+          var mutableSet = {1, 2, 3, 2};  / {1, 2, 3}
+          var emptySet = <int>{};
+      - set modify: |-
+          mutableSet.add(4);
+          
+          bool wasFound = mutableSet.remove(3);
+          
+          mutableSet.removeAll();
+      - set utility: |-
+          setA.union(setB);
+          setA.intersection(setB);
+          setA.difference(setB);
+      - key-value create: |-
+          var personMap = {"first": "Joe", "last": "Smith"};
+          var emptyMap = Map<String, String>();
+      - key-value access: |-
+          var name = personMap["first"];
+      - key-value modify: |-
+          personMap["middleInitial"] = "C";
+          
+          personMap.remove("first");
+      - key-value utility: |-
+          bool wasFound = personMap.containsKey("last");
+          bool wasFound = personMap.containsValue("Smith");
+      - "all: properties": |-
+          var numberOfElements = mutableList.length;
+          bool empty = myMap.isEmpty;
+      - "all: iteration": |-
+          myList.forEach((item) { ... });
+          myMap.forEach((key, value) { ... });
+          
+          var nums = [1, 2, 3];
+          var numStrings = nums.map((n) => n.toString());
+          numStrings.forEach(print);
+          https://api.dart.dev/stable/dart-core/Iterable-class.html
+      - "all: utility": |-
+          var isTrue = myArray.contains("Cats");
+          
+          var isTrue = myDict.isEmpty;
+          var isTrue = mySet.isNotEmpty;
+          
+          // map
+          // numberStrings below is lazily evaluated on access
+          // to force full integration use map().toList()
+          var numbers = [1, 2, 3];
+          var numberStrings = numbers.map((num) => number.toString());
+          
+          var cars = ['bmw', 'ford', 'tesla'];
+          bool isElectric(String car) => car == 'tesla';
+          
+          // get all items that satisfy
+          var electricCars = cars.where(isElectric);
+          cars.any(isElectric);    // check if any items satisfy
+          cars.every(isElectric);  // check if all items satisfy
+      - reference: https://dart.dev/guides/libraries/library-tour#collections
+  function:
+    items:
+      - overview: |-
+          // positional parameter
+          String sayHello(String name) { ... }
+          // optional positional parameters
+          String sayHello(String name, [String greeting]) { ... } 
+          sayHello('Jane', 'Howdy');
+
+          // named parameters with default value
+          // Note - named params are always optional
+          String sayHello({bool exclaim, String name = 'World'}) { ... }
+          sayHello(exclaim: false);
+          
+          // function as parameter
+          String printMath(int Function(int, int) math, int a, int b) {
+            return math(a, b);
+          }
+
+          // primitives (int, bool, double, etc) passed by value
+          // objects passed by reference
+      - closures/lambdas: |-
+          var add = (int a, int b) { return a + b; }
+          var add = (int a, int b) => a + b;
+      - reference: https://dart.dev/guides/language/language-tour#functions
+  enum:
+    items:
+      - create: |-
+          enum Color {
+            red, green, blue
+          }
+          var myColor = Color.green;
+      - closures/lambdas: |-
+          enum Dessert {
+            brownie, cookie, cake, port
+          }
+          var countOfDessertTypes = Dessert.values.length;
+          Dessert.values.forEach((type) { ... });
+      - raw values: |-
+          n/a
+          https://github.com/dart-lang/sdk/issues/33698
+      - associated values: |-
+          n/a
+      - reference: https://dart.dev/guides/language/language-tour#enumerated-types
+  struct:
+    items:
+      - create: |-
+          n/a
+      - instantiate: |-
+          n/a
+      - reference: 
+  class:
+    items:
+      - define: |-
+          class Animal {
+            String name;
+            var sound = "Animal noises";
+            num numberOfFleas = 0;  // num covers int and double
+  
+            bool get needsBath {    // computed property
+              return numberOfFleas > 0;
+            }
+  
+            // default constructor
+            Animal() {
+              this.name = "Unknown Animal";
+            }
+  
+            // named constructor
+            Animal.named(String name) {
+              this.name = name;
+            }
+            // Animal(this.name); // syntax sugar for above
+
+            makeSound() {
+              print(sound);
+            }
+          }
+      - instantiate: |-
+          var cat = Animal("Cat");
+      - subclass: |-
+          class Dog extends Animal {
+            bool isMuddy = true;
+
+            Dog([String name = "Dog"]) : super.named(name) {
+              this.sound = "Bark";
+            }
+
+            @override
+            bool get needsBath {
+              return numberOfFleas > 10 && isMuddy;
+            }
+          }
+          var dog = Dog();
+      - reference: https://dart.dev/guides/language/language-tour#classes
+  protocol:
+    items:
+      - protocols: |-
+          
+      - extensions: |-
+          extension NumberParsing on String {
+            int parseInt() {
+              return int.parse(this);
+            }
+          }
+          int a = "7".parseInt()
+      - reference: 
+  error:
+    items:
+      - define: |-
+          class OutOfLlamasException implements Exception {
+            final String msg;
+
+            const OutOfLlamasException([this.msg]);
+
+            @override
+            String toString() => msg ?? 'Out of Llamas';
+          }
+      - handle: |-
+            try {
+              breedMoreLlamas();
+            } on OutOfLlamasException {
+              // A specific exception
+              buyMoreLlamas();
+            } on Exception catch (e) {
+              // Anything else that is an exception
+              print('Unknown exception: $e; rethrowing');
+              rethrow;   // pass on 
+            } finally {
+              // always do this cleanup code
+              cleanLlamaStalls();
+            }
+      - reference: https://dart.dev/guides/language/language-tour#exceptions
+  misc:
+    items:
+      - access scope: |-
+          var _private = 5;  // private to library
+
+          class Animal {
+            ...
+            _privateAnimalMethod() { ... }
+          }
+          https://dart.dev/guides/language/language-tour#libraries-and-visibility
+          
+  core:
+    items:
+      - filesystem: |-
+          https://dart.dev/guides/libraries/library-tour#files-and-directories
+      - network: |-
+          https://dart.dev/guides/libraries/library-tour#http-clients-and-servers
+      - date: |-
+          var now = DateTime.now();
+          var nowString = now.toString();
+          var nowISO8610 = now.toIso8601String();
+
+          https://dart.dev/guides/libraries/library-tour#dates-and-times
+      - json: |-
+          import 'dart:convert';
+
+          var jsonString = '''
+          { "username": "Joe", "id": 5, "lastLoginDate": "2019-04-23" }
+          ''';
+
+          // decode into Dart object
+          var user = jsonDecode(jsonString);
+          assert(user is Map);
+          print(user['id']);   // 5
+
+          // encode into JSON
+          var encodedJsonString = jsonEncode(user);
+          print(encodedJsonString);
+
+
+          https://dart.dev/guides/libraries/library-tour#dartconvert
+      - "async/threading": |-
+          // using async/await
+          Future checkVersion() async {
+            var version = await lookUpVersion();
+            // do something 
+          }
+
+          // using Futures
+          HttpRequest.getString(url).then((String result) {
+            print(result);
+          }).catchError((e) {
+            // Handle or ignore the error.
+          });
+
+          https://dart.dev/guides/language/language-tour#asynchrony-support

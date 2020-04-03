@@ -2,10 +2,10 @@
 <html lang="en" data-code-theme="light">
 {{ partial "head.html" . -}}
 <body>
-{{- partial "header.html" . }}
-  <div class="content">
+{{ partial "header.html" . }}
+  <main class="content">
   {{- block "main" . }}{{- end }}
-  </div>
-  {{ partial "footer.html" . }}
+  </main>
+{{ partial "footer.html" . -}}
 </body>
 </html>

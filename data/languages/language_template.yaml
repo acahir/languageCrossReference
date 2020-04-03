@@ -1,0 +1,163 @@
+info:
+  version: ""
+  lastModified: ""
+  shortName: ""
+  displayName: ""
+options:
+  themeColor: ""
+sections:
+  style:
+    items:
+      - naming: |-
+          
+      - filenames: |-
+          
+      - reference: 
+  basic:
+    items:
+      - types: |-
+          
+      - variables: |-
+          
+      - operators: |-
+          
+      - increment/decrement: |-
+          
+      - comments: |-
+          
+      - ranges: |-
+          
+      - tuples: |-
+          
+      - reference: 
+  nullable:
+    items:
+      - value: 
+      - define: |-
+          
+      - safe access: |-
+          
+      - forced access: |-
+          
+      - reference: 
+  string:
+    items:
+      - instantiation: |-
+          
+      - concatination: |-
+          
+      - interpolation: |-
+          
+      - multiline: |-
+          
+      - raw: |-
+          
+      - grapheme clusters: |-
+          
+      - reference: 
+  flow:
+    items:
+      - conditionals: |-
+          
+      - ternary operator: |-
+          
+      - loops: |-
+          
+      - switch: |-
+          
+      - reference: 
+  collection:
+    items:
+      - array create: |-
+          
+      - array access: |-
+          
+      - array modify: |-
+          
+      - set create: |-
+          
+      - set modify: |-
+          
+      - set utility: |-
+          
+      - key-value create: |-
+          
+      - key-value access: |-
+          
+      - key-value modify: |-
+          
+      - key-value utility: |-
+          
+      - "all: properties": |-
+          
+      - "all: iteration": |-
+          
+      - "all: utility": |-
+          
+      - reference: 
+  function:
+    items:
+      - overview: |-
+          
+      - closures/lambdas: |-
+          
+      - reference: 
+  enum:
+    items:
+      - create: |-
+          
+      - closures/lambdas: |-
+          
+      - raw values: |-
+          
+      - associated values: |-
+          
+      - reference: 
+  struct:
+    items:
+      - create: |-
+          
+      - instantiate: |-
+          
+      - reference: 
+  class:
+    items:
+      - define: |-
+          
+      - instantiate: |-
+          
+      - subclass: |-
+          
+      - reference: 
+  protocol:
+    items:
+      - protocols: |-
+          
+      - extensions: |-
+          
+      - reference: 
+  error:
+    items:
+      - define: |-
+          
+      - handle: |-
+          
+      - reference: 
+  misc:
+    items:
+      - access scope: |-
+          
+      - underscore: |-
+          
+  core:
+    items:
+      - filesystem: |-
+          
+      - network: |-
+          
+      - date: |-
+          
+      - json: |-
+          
+      - "async/threading": |-
+          

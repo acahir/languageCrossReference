@@ -1,12 +1,16 @@
 ---
-title: Language Comparison Quick Reference
+title: Language Cross Reference
 date: "2020-03-15"
+outputs:
+  - html
+  - css
 description: ""
+maxComparisons: 3
 comparisonType: "languages"
 comparisonSections:
   - style: "Style"
   - basic: "Basics: Variables, Types, and Operators"
-  - null: "Nullability"
+  - nullable: "Nullability"
   - string: "Strings"
   - flow: "Control Flow"
   - collection: "Collections"

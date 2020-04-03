@@ -1,3 +1,10 @@
+info:
+  version: "5.2"
+  lastModified: "2020-03-31"
+  shortName: "swift"
+  displayName: "Swift"
+options:
+  themeColor: "hsl(10, 70%, 65%)"
 sections:
   style:
     items:
@@ -5,14 +12,18 @@ sections:
           UpperCamelCase: Types and Protocols
           lowerCamelCase: everything else
       - filenames: |-
-          - MyType.swift
-          - MyType+MyProtocol.swift
-      - reference: https://swift.org/documentation/api-design-guidelines/
+          MyType.swift
+          MyType+MyProtocol.swift
+      - indentation: |-
+          prefer spaces to tabs
+          use xcode ctrl-I to automatically indent
+      - reference: |-
+          https://swift.org/documentation/api-design-guidelines/
   basic:
     items:
       - types: |-
           Int, Double, Bool, String, Data, Any, AnyObject
-          Array, Set, Dictionary
+          Array, Set, Dictionary, Tuples
           
           if item is Int { ... }
           if let mySquare = rectangle as? Square { ... }
@@ -29,27 +40,30 @@ sections:
           compound assignment: +=, -=, *=, /=
           comparison: ==, !=, >, <, >=, <=
           logical: !, &&, ||
-          increment/decrement: N/A
+      - increment/decrement: n/a
       - comments: |-
           // single line commeng
           /* multiline
              comment */
           /// doc comment
       - ranges: |-
-          i in 1...5  // includes 1 and 5
-          i in 1..<5  // includes 1, not 5
-          item in array[4...] 
-          item in array[..<4]
+          i in 1...5   // includes 1 and 5
+          i in 1..<5   // includes 1, not 5
+          
+          array[..<4]  // indexes 0 to 3
+          array[4...]  // indexes 4 to end
       - tuples: |-
           let httpError = (404, "Not found")
           let (code, errMsg) = httpError
           let code = httpError.0
           let (_, errMsg) = httpError
       - reference: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html
-  null:
+  nullable:
     items:
       - value: nil
-      - define: "var optString: String?"
+      - define: |-
+          // must be explicitly declared
+          "var optString: String?"
       - safe access: |-
           if let x = optString?.count { ... }
           let x = optString?.count ?? 0
@@ -60,7 +74,6 @@ sections:
           
           let optString: String! = "Implicitly Unwrapped"
           let x = optString   // no need for ? or !
-      - notes: must be explicitly declared
       - reference: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID330
   string:
     items:
@@ -135,6 +148,8 @@ sections:
           var mutableArray = ["One", "Two"]
           var emptyArray = [Int]()   // empty array
           var arrayOfPi = Array(repeating: 3.14, count 10)
+          
+          var newArray = mutableArray   // copy-on-write
       - array access: |-
           if let index = mutableArray.firstIndex(of: "Two") {
             let a = mutableArray[index]
@@ -169,16 +184,17 @@ sections:
           setA.isSuperset(of: setB)
           setA.isDisjoint(with: setB)
       - key-value create: |-
-          var personDictionary = ["first": "Joe", "last": "Smith"]
-          var emptyDictionary = [String: String]()
+          var personDict = ["first": "Joe", "last": "Smith"]
+          var emptyDict = [String: String]()
       - key-value access: |-
-          let name = personDictionary["first"]
+          let name = personDict["first"]
       - key-value modify: |-
           personDict["middleInitial"] = "C"
           let oldValue = personDict.updateValue("Blow", forKey: "last")
           
           personDict["middleInitial"] = nil
           let removedValue = personDict.removeValue(forKey: "first")
+      - key-value utility: 
       - "all: properties": |-
           let numberOfElements = mutableArray.count
           if myDictionary.isEmpty { ... } // faster check than .count
@@ -214,7 +230,7 @@ sections:
   function:
     items:
       - overview: |-
-          // single parameter and default and single return value
+          // single parameter with default and single return value
           func sayHello(name: String = "World") -> String { ... }
           print(sayHello(name: "Jane"))
           
@@ -243,6 +259,8 @@ sections:
       - closures/lambdas: |-
           let addClosure: (Int, Int) -> Int = { (a, b) in a + b }
           let subtractClosure: (Int, Int) -> Int = { $0 - $1 }
+          https://docs.swift.org/swift-book/LanguageGuide/Closures.html
+      - reference: https://docs.swift.org/swift-book/LanguageGuide/Functions.html
   enum:
     items:
       - create: |-
@@ -250,7 +268,7 @@ sections:
             case painting, poster, sculpture, ascii
           }
           let newPurchase = VisualArt.poster
-      - closures/lambdas: |-
+      - access: |-
           enum Dessert: CaseIterable {
             case brownie, cookie, cake, port
           }
@@ -278,6 +296,7 @@ sections:
             case .color:
               print("So pretty")
           }
+      - reference: https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html
   struct:
     items:
       - create: |-
@@ -374,7 +393,7 @@ sections:
       - reference: https://docs.swift.org/swift-book/LanguageGuide/ErrorHandling.html
   misc:
     items:
-      - access: |-
+      - access scope: |-
           public
           internal     // default, limited to defining module
           fileprivate  // limited to source file
@@ -419,7 +438,7 @@ sections:
             }
           }
           https://developer.apple.com/documentation/swift/codable
-      - threading: |-
+      - "async/threading": |-
           DispatchQueue.global(qos: .userInitiated).async {
             if let url = URL(string: urlString) {
               if let data = try? Data(contentsOf: url) {

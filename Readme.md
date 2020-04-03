@@ -30,10 +30,25 @@ The information covered is not meant to be exhaustive, instead is a quick refere
 - [x] Transfer design to hugo theme
 	- [x] code-wrapper shortcode
 	- [x] Build hugo template for comparison page
-- [ ] Include option for column color in front matter
-- [ ] Automatically create select menus from data files available
-- [ ] Choose number of columns?
-- [ ] Complete reference for python
+- [x] Include option for column color in front matter
+	- look at css media format output from hugo
+  - [x] Controls to choose number of columns
+  - [x] Javascript to change number of columns
+    - set number of columns/control based on media query when page loads
+  - [x] add css columnX declarations to auto-generated css
+- [x]	Fix margin bug with "more info" link
+- [x] Switch html to use semantic elements
+	- main, header, nav, and sections
+	- section titles to header tags
+- [x] Automatically create select menus from data files available
+- [x] Add support for changing to dark mode (color scheme already created)
+  - [x] check for problems in header, more info, references, etc in dark mode
+- [x] Check Firefox and Chrome
+- [x] Clean up repetitive CSS for top nav "buttons"
+- [x] Pull down menu with links to sections?
+- [x] Filter out data files with "template" in filename
+- [x] Complete reference for Dart
+- [x] Complete reference for python
 - [ ] Additional languages (not started)
 	- [ ] Javascript
 	- [ ] Perl

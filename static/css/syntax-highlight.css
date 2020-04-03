@@ -44,8 +44,8 @@ html[data-code-theme="dark"] {
 	--syntax-error: #ff0000;
 	
 	--code-color: #ddd;
-	--code-background: #272727;			/* hsl(0, 0%, 15%) */
-	--code-header-background: #393939; /* hsl(0, 0%, 20%) */
+	--code-background: #333;		
+	--code-header-background: #444; 
 }
 
 /* from github prettify theme 

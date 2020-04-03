@@ -422,6 +422,8 @@ fieldset + * {
 pre + *,
 blockquote + *,
 div + *,
+header + *,
+section + *,
 dl + *,
 figure + *,
 table + *,
