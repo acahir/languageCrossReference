@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://acahir.github.io/languageCrossReference/"
 languageCode = "en-us"
 title = "Language Comparison Quick Reference"
 publishDir = "./docs"
