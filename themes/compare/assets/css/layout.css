@@ -68,13 +68,14 @@ body > header > nav {
 }
 
 #section-menu-toggle {
-	background: #ddd right 4px no-repeat url(../images/icon-caret-sm.svg);
+	background: #ddd 92% 12px no-repeat url(../images/chevron-down.svg);
 	padding-right: 27px;
 }
 
 #section-menu.open #section-menu-toggle {
 	border-bottom-color: #ddd;
-	background-image: url(../images/icon-close-sm.svg);	
+	background-image: url(../images/chevron-close.svg);	
+	background-position-y: 9px;
 	border-radius: 0;
 	padding-bottom: 7px;
 }

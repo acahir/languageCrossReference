@@ -13,7 +13,7 @@
 					<option value="">Choose language:</option>			  
 {{- range $comparisonItemName, $comparisonItem := $.compareItems -}}
 	{{- if not (in $comparisonItemName "template") }}
-					<option value="{{- $comparisonItemName -}}">{{- humanize $comparisonItemName -}}{{- with $comparisonItem.info.version }} (v{{- . -}}){{ end -}}</option>
+					<option value="{{- $comparisonItemName -}}">{{- title $comparisonItemName -}}{{- with $comparisonItem.info.version }} (v{{- . -}}){{ end -}}</option>
 	{{- end -}}
 {{- end }}
 				</select>

@@ -40,6 +40,12 @@
     // TODO - change storage of what language is currently displayed in a column
     //        to html data attribute, insted of unused css variable. 
   
+    // Note - to get CSS variable values after page first loads:
+    //  (after setting in JS, they can be accessed from:
+    //   document.documentElement.style.getPropertyValue(), but this returns "" before0
+    //   being set the first time in JS. So getComputedStyle is consistent)
+    //  getComputedStyle(document.documentElement).getPropertyValue('--my-variable-name');
+  
     // create css variable names
     var langVisibilityVariableName = '--' + element.value + '-visibility';
     var langColumnPropertyName = '--' + element.value + '-column';

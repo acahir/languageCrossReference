@@ -1,7 +1,7 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "Language Comparison Quick Reference"
-publishDir = "./site"
+publishDir = "./docs"
 disableKinds = ["RSS", "sitemap", "taxonomy", "taxonomyTerm"]
 pygmentsUseClasses = "true"
 theme = "compare"

@@ -54,7 +54,10 @@ The information covered is not meant to be exhaustive, instead is a quick refere
 	- [ ] Perl
 - [ ] Change about link to be pulled from front matter param
 - [ ] Update readme to document actual usage and design decisions
-- [ ] Use hugo pipes for assets
+- [x] Use hugo pipes for assets
+- [ ] Add column language selection to local storage for persistance?
+  - could cause problems if became out of sync with current numColumns
+    - only load/save on page load/close?
 
 ### Feedback and Suggestions
 
