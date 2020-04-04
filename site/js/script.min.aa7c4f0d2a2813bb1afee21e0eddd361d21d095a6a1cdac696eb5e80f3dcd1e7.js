@@ -1,0 +1,30 @@
+(function(){var maxColumns;document.addEventListener('DOMContentLoaded',function(){maxColumns=setMaxColumns();loadTheme();const vw=Math.max(document.documentElement.clientWidth,window.innerWidth||0);var numColumns=1;if(vw>1520){numColumns=3;}
+else if(vw>1020){numColumns=2;}
+var elementID='num-columns-'+numColumns
+var numColumnsButton=document.getElementById(elementID);numColumnsButton.checked=true;changeNumColumns(numColumnsButton);},false);function setMaxColumns(){var radioButtons=document.getElementsByClassName('number-of-comparison-radio');var max=0;for(let e of radioButtons){max=max>e.value?max:e.value;}
+return max;}
+function selectChange(element){let root=document.documentElement;var newSelectedLanguage=element.value;var selectedColumn=(parseInt(element.name)+1).toString();var langVisibilityVariableName='--'+element.value+'-visibility';var langColumnPropertyName='--'+element.value+'-column';var columnLanguagePropertyName='--column'+element.name;var menus=document.getElementsByTagName('select');for(menu of menus){if(menu==element){var prevLanguage=root.style.getPropertyValue(columnLanguagePropertyName).trim();if(prevLanguage!=''){var prevLanguageVisibilityVariableName='--'+prevLanguage+'-visibility';root.style.setProperty(prevLanguageVisibilityVariableName,'none');}
+continue;}
+if(element.valeu!=''&&menu.value===element.value){var prevColumnLanguagePropertyName='--column'+menu.name;root.style.setProperty(prevColumnLanguagePropertyName,'');menu.value='';}}
+root.style.setProperty(langVisibilityVariableName,'block');root.style.setProperty(langColumnPropertyName,selectedColumn);root.style.setProperty(columnLanguagePropertyName,element.value);}
+function collapseSection(element){var sectionHeight=element.scrollHeight;var elementTransition=element.style.transition;element.style.transition='';requestAnimationFrame(function(){element.style.height=sectionHeight+'px';element.style.transition=elementTransition;requestAnimationFrame(function(){element.style.height=0+'px';});});element.setAttribute('data-collapsed','true');}
+function expandSection(element){var sectionHeight=element.scrollHeight;element.style.height=sectionHeight+'px';element.addEventListener('transitionend',function(e){element.removeEventListener('transitionend',arguments.callee);element.style.height=null;});element.setAttribute('data-collapsed','false');}
+function showHide(target){var sectionName=target.value;var section=document.getElementById(sectionName);var isCollapsed=section.getAttribute('data-collapsed')==='true';if(isCollapsed){expandSection(section)
+section.setAttribute('data-collapsed','false');}else{collapseSection(section);}
+target.innerHTML=target.innerHTML=='Hide'?'Show':'Hide';}
+function hasClass(element,className){if(!element||!className){return false;}
+var classString=element.className,nameIndex=classString.indexOf(className);return(nameIndex!=-1);}
+function toggleMenu(showMenu){var menuElement=document.getElementById('section-menu');if(showMenu){menuElement.classList.add('open');}else{menuElement.classList.remove('open');}}
+var sectionHideButtons=document.getElementsByClassName('section-hide');Array.prototype.forEach.call(sectionHideButtons,function(el,index,array){el.addEventListener('click',function(event){showHide(event.target);});});document.getElementById('section-menu-toggle').addEventListener('mousedown',function(event){toggleMenu(!hasClass(document.getElementById('section-menu'),'open'));event.preventDefault();});var menuLinks=document.getElementsByClassName('section-link');Array.prototype.forEach.call(menuLinks,function(el,index,array){el.addEventListener('click',function(event){toggleMenu(false);});});document.addEventListener('mousedown',function(event){if(event.defaultPrevented)return;if(hasClass(document.getElementById('section-menu'),'open')&&!(event.target.closest('#section-menu'))){toggleMenu(false);}})
+function changeNumColumns(target){const newNumColumns=target.value;var menuId;var menuElement;var menuElementParent;for(let i=maxColumns;i>newNumColumns;i--){menuId='column'+i.toString()+'-select';menuElement=document.getElementById(menuId);menuElementParent=document.getElementById(menuId+'-div');menuElement.value='';selectChange(menuElement);menuElementParent.style.display='none';}
+document.documentElement.style.setProperty('--numColumns',newNumColumns);for(let i=1;i<=newNumColumns;i++){menuId='column'+i.toString()+'-select';menuElement=document.getElementById(menuId);menuElementParent=document.getElementById(menuId+'-div');menuElementParent.style.display='inline-block';}}
+var radioButtons=document.getElementsByClassName('number-of-comparison-radio');Array.prototype.forEach.call(radioButtons,function(el,index,arra){el.addEventListener('change',function(event){changeNumColumns(event.target);});});var selectMenus=document.getElementsByClassName('column-select');for(let e of selectMenus){e.addEventListener('change',function(event){selectChange(event.target);});}
+document.getElementById('column2-select').onchange=function(){selectChange(this);}
+document.getElementById('column3-select').onchange=function(){selectChange(this);}
+var themeButton=document.getElementById('code-theme-menu-toggle');themeButton.addEventListener('click',function(event){toggleCodeTheme(event);});function toggleCodeTheme(e){document.documentElement.classList.add('transition-theme')
+if(document.documentElement.getAttribute("data-code-theme")!="dark"){document.documentElement.setAttribute("data-code-theme","dark")
+localStorage.setItem("code-theme","dark")}else{document.documentElement.setAttribute("data-code-theme","light")
+localStorage.setItem("code-theme","light")}
+window.setTimeout(function(){document.documentElement.classList.remove('transition-theme')},1000)}
+function loadTheme(){var codeTheme=localStorage.getItem("code-theme")
+if(codeTheme){document.documentElement.setAttribute("data-code-theme",codeTheme);}}})();

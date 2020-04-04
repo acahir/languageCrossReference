@@ -1,9 +1,6 @@
 ---
 title: Language Cross Reference
 date: "2020-03-15"
-outputs:
-  - html
-  - css
 description: ""
 maxComparisons: 3
 comparisonType: "languages"

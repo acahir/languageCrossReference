@@ -6,8 +6,3 @@ disableKinds = ["RSS", "sitemap", "taxonomy", "taxonomyTerm"]
 pygmentsUseClasses = "true"
 theme = "compare"
 disableHugoGeneratorInject = true
-
-[outputFormats]
-	[outputFormats.CSS]
-		path = "/css/"
-		baseName = "compare"

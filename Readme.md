@@ -52,6 +52,9 @@ The information covered is not meant to be exhaustive, instead is a quick refere
 - [ ] Additional languages (not started)
 	- [ ] Javascript
 	- [ ] Perl
+- [ ] Change about link to be pulled from front matter param
+- [ ] Update readme to document actual usage and design decisions
+- [ ] Use hugo pipes for assets
 
 ### Feedback and Suggestions
 
