@@ -92,8 +92,8 @@ sections:
           rawString = r'use /n to print a newline'
       - grapheme clusters: |-
           # strings are arrays, no character object
-          laugh = "laughing!"
-          exclamationMark = laugh[-1]
+          laugh = "laughing emoji: &#x1F606;"
+          lastCharacter = laugh[-1]
       - reference: https://docs.python.org/3/library/stdtypes.html#str
   flow:
     items:
