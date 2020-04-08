@@ -373,6 +373,7 @@ code {
   margin: 0 .2rem;
   font-size: 90%;
   white-space: nowrap;
+  color: var(--code-color);
   background: var(--code-background);
   border: 1px solid var(--border-color-softer);
   border-radius: 4px; }

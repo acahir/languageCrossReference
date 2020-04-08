@@ -92,7 +92,7 @@ sections:
           rawString = r'use /n to print a newline'
       - grapheme clusters: |-
           # strings are arrays, no character object
-          laugh = "laughing emoji: &#x1F606;"
+          laugh = "laughing emoji: 😆"
           lastCharacter = laugh[-1]
       - reference: https://docs.python.org/3/library/stdtypes.html#str
   flow:

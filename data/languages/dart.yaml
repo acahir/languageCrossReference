@@ -90,7 +90,7 @@ sections:
       - grapheme clusters: |-
           import 'package:characters/characters.dart';
           
-          var laugh = 'laughing emoji: &#x1F606;';
+          var laugh = 'laughing emoji: 😆';
           var lastCharacter = $laugh.characters.last;
       - reference: https://dart.dev/guides/language/language-tour#strings
   flow:

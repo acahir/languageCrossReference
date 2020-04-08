@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" data-code-theme="light">
 <head>
-  <link rel="stylesheet" type="text/css" href="/css/normalize.min.6dec53ee20f5bc2905289325994cab42171978d2d264472563bf2e1eab0da1cd.css">
-	<link rel="stylesheet" type="text/css" href="/css/barebones.min.92569c95cda44f07fced207b27ce97a26270ff0e8b5845bee01c3e4a84e52fea.css">
-	<link rel="stylesheet" type="text/css" href="/css/syntax-highlight.min.2fa0a6f11cbb83549733ef4e9e6446a4f57f6f0099f05329c102ad703a483d37.css">
-  <link rel="stylesheet" type="text/css" href="/css/compare.min.441cae53f0caa760b450ee8f29ccebb9133cabf80032322c3ae7ef876716c953.css">
-	<link rel="stylesheet" type="text/css" href="/css/layout.min.ead434efd4e449c4f31b50cf96ece5eab799f01291043dd1a903c68db57002a5.css">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="/languageCrossReference/css/normalize.min.css">
+	<link rel="stylesheet" type="text/css" href="/languageCrossReference/css/barebones.min.css">
+	<link rel="stylesheet" type="text/css" href="/languageCrossReference/css/syntax-highlight.min.css">
+  <link rel="stylesheet" type="text/css" href="/languageCrossReference/css/compare.min.css">
+	<link rel="stylesheet" type="text/css" href="/languageCrossReference/css/layout.min.css">
 </head>
 <body>
 	<header>
@@ -32,32 +33,26 @@
 			<menu id="number-of-comparisons-menu">
 				<div>
 					<span>Columns:</span>
-					<input type="radio" id="num-columns-1" class="number-of-comparison-radio" name="columns" value="1">
-					<label for="num-columns-1">1</label>
-					<input type="radio" id="num-columns-2" class="number-of-comparison-radio" name="columns" value="2">
-					<label for="num-columns-2">2</label>
-					<input type="radio" id="num-columns-3" class="number-of-comparison-radio" name="columns" value="3">
-					<label for="num-columns-3">3</label>
+					<input type="radio" id="num-comparisons-1" class="number-of-comparison-radio" name="comparisons" value="1">
+					<label for="num-comparisons-1">1</label>
+					<input type="radio" id="num-comparisons-2" class="number-of-comparison-radio" name="comparisons" value="2">
+					<label for="num-comparisons-2">2</label>
+					<input type="radio" id="num-comparisons-3" class="number-of-comparison-radio" name="comparisons" value="3">
+					<label for="num-comparisons-3">3</label>
 				</div>
 			</menu>
 			<div id="about-nav">
 				<a href="https://github.com/acahir/languagequickreference/" target="_blank" rel="noopener noreferrer">About</a>
 			</div>
 			<menu id="code-theme-menu">
-				<span id="code-theme-menu-toggle"><img title="Toggle code theme" src="/images/theme-switch.svg" alt="Toggle code theme"></span>
+				<span id="code-theme-menu-toggle"><img title="Toggle code theme" src="/languageCrossReference/images/theme-switch.svg" alt="Toggle code theme"></span>
 			</menu>
 		</nav>
+		production
 	</header>
   <main class="content">
 		<menu class="code-section-grid">
-			<div id="column1-select-div" class="column-menu">
-				<select id="column1-select" class="column-select" name="1">
-					<option value="">Choose language:</option>
-					<option value="dart">Dart (v2.6)</option>
-					<option value="python">Python (v3.8.2)</option>
-					<option value="swift">Swift (v5.2)</option>
-				</select>
-			</div><div id="column2-select-div" class="column-menu">
+			<div id="column2-select-div" class="column-menu">
 				<select id="column2-select" class="column-select" name="2">
 					<option value="">Choose language:</option>
 					<option value="dart">Dart (v2.6)</option>
@@ -66,6 +61,13 @@
 				</select>
 			</div><div id="column3-select-div" class="column-menu">
 				<select id="column3-select" class="column-select" name="3">
+					<option value="">Choose language:</option>
+					<option value="dart">Dart (v2.6)</option>
+					<option value="python">Python (v3.8.2)</option>
+					<option value="swift">Swift (v5.2)</option>
+				</select>
+			</div><div id="column4-select-div" class="column-menu">
+				<select id="column4-select" class="column-select" name="4">
 					<option value="">Choose language:</option>
 					<option value="dart">Dart (v2.6)</option>
 					<option value="python">Python (v3.8.2)</option>
@@ -494,7 +496,7 @@
 					<div class="code-wrapper showHeader">
 						<div class="code-header flex"><span>grapheme clusters</span></div><pre class="chroma"><code class="language-dart" data-lang="dart"><span class="k">import</span> <span class="s1">&#39;package:characters/characters.dart&#39;</span><span class="p">;</span>
 
-<span class="kd">var</span> <span class="n">laugh</span> <span class="o">=</span> <span class="s1">&#39;laughing emoji: &#x1F606;&#39;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="n">laugh</span> <span class="o">=</span> <span class="s1">&#39;laughing emoji: 😆&#39;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="n">lastCharacter</span> <span class="o">=</span> <span class="n">$laugh</span><span class="p">.</span><span class="n">characters</span><span class="p">.</span><span class="n">last</span><span class="p">;</span></code></pre>	
 					</div> 
 				</div> 
@@ -536,7 +538,7 @@
 				<div class="lang python python-bg-color">
 					<div class="code-wrapper showHeader">
 						<div class="code-header flex"><span>grapheme clusters</span></div><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># strings are arrays, no character object</span>
-<span class="n">laugh</span> <span class="o">=</span> <span class="s2">&#34;laughing emoji: &#x1F606;&#34;</span>
+<span class="n">laugh</span> <span class="o">=</span> <span class="s2">&#34;laughing emoji: 😆&#34;</span>
 <span class="n">lastCharacter</span> <span class="o">=</span> <span class="n">laugh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></code></pre>	
 					</div> 
 				</div> 
@@ -577,7 +579,7 @@
 				</div> 
 				<div class="lang swift swift-bg-color">
 					<div class="code-wrapper showHeader">
-						<div class="code-header flex"><span>grapheme clusters</span></div><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">laugh</span> <span class="p">=</span> <span class="s">&#34;laughing emoji: &#x1F606;&#34;</span>
+						<div class="code-header flex"><span>grapheme clusters</span></div><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">laugh</span> <span class="p">=</span> <span class="s">&#34;laughing emoji: 😆&#34;</span>
 <span class="k">if</span> <span class="kd">let</span> <span class="nv">lastCharacter</span> <span class="p">=</span> <span class="n">laugh</span><span class="p">.</span><span class="bp">last</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span><span class="s">&#34;</span></code></pre>	
 					</div> 
 				</div> 
@@ -2024,5 +2026,5 @@
 		</section>
   </main>
   <footer>
-  </footer><script src="/js/script.min.aa7c4f0d2a2813bb1afee21e0eddd361d21d095a6a1cdac696eb5e80f3dcd1e7.js"></script></body>
+  </footer><script src="/languageCrossReference/js/script.min.js"></script></body>
 </html>

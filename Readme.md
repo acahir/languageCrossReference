@@ -49,6 +49,11 @@ The information covered is not meant to be exhaustive, instead is a quick refere
 - [x] Filter out data files with "template" in filename
 - [x] Complete reference for Dart
 - [x] Complete reference for python
+- [x] Fix emoji issue
+- [x] Update to use localStorage for current compare settings
+  - [x] clarified use of num-columns (code) vs num-comparisons (user facing)
+- [ ] Add meta tags to head
+- [ ] Convert to use theme via submodule
 - [ ] Additional languages (not started)
 	- [ ] Javascript
 	- [ ] Perl

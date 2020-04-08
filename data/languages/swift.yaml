@@ -93,7 +93,7 @@ sections:
           let raw = #"use \(myVar) to print objects"#
           let rawInterpolation = #"myVar: \#(myVar)"#
       - grapheme clusters: |-
-          var laugh = "laughing emoji: &#x1F606;"
+          var laugh = "laughing emoji: 😆"
           if let lastCharacter = laugh.last { ... }"
       - reference: https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html
   flow:
