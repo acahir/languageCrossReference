@@ -13,13 +13,12 @@ sections:
           lowerCamelCase: identifiers and constants
           lowecase_underscore: libraries, packages, directories
           _leadingUnderscore: private variable or method
+      - filenames: |-
+          lowercase_with_underscores.dart
       - indentation: |-
           indent 2 spaces
           prefer spaces to tabs
           use dartfmt to correctly format
-      - filenames: |-
-          lowercase_with_underscores.swift
-          MyType+MyProtocol.swift
       - reference: https://dart.dev/guides/language/effective-dart/style
   basic:
     items:
